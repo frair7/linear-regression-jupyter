@@ -1,0 +1,19 @@
+name: 7030_class_2
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.10
+  - jupyterlab
+  - ipykernel
+  - numpy
+  - pandas
+  - matplotlib
+  - scipy
+  - seaborn
+  - scikit-learn
+  - r-base
+  - r-irkernel
+  - r-ggplot2
+  - r-caret

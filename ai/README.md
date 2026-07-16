@@ -1,47 +1,46 @@
 # AI-Assisted Linear Regression (Assignment 2)
 
-This folder contains the AI-generated portion of Assignment 2. All files were created independently inside `ai/` without modifying, moving, or renaming anything in the `manual/` implementation.
+This folder contains the AI-generated solution for the linear regression portion of Assignment 2. All files here were created with AI assistance and **without modifying the manual implementation** in other folders.
 
 ## Contents
 
 | File | Description |
 |------|-------------|
-| `environment.yml` | Conda environment specification for Python and R dependencies |
-| `regression_python.ipynb` | Python Jupyter notebook analyzing `../regression_data.csv` |
-| `regression_r.ipynb` | R Jupyter notebook analyzing `../regression_data.csv` |
-| `regression_python.html` | HTML export of the Python notebook |
-| `regression_r.html` | HTML export of the R notebook |
-| `linear_regression_python.py` | Standalone Python script with generic CLI arguments |
-| `linear_regression_r.R` | Standalone R script with generic CLI arguments |
+| `environment.yml` | Conda environment with Python, Jupyter, R, and analysis dependencies |
+| `regression_analysis_python.ipynb` | Python notebook: load data, scatter plot, fit model, overlay line, evaluate |
+| `regression_analysis_r.ipynb` | R notebook with the same workflow |
+| `regression_analysis_python.html` | Executed HTML export of the Python notebook |
+| `regression_analysis_r.html` | Executed HTML export of the R notebook |
+| `regression_plot.py` | Standalone Python script (command-line arguments) |
+| `regression_plot.R` | Standalone R script (command-line arguments) |
+| `regression_data_regression_plot_python.png` | Regression plot from the Python script |
+| `regression_data_regression_plot_r.png` | Regression plot from the R script |
 
-Each notebook loads the data, creates a scatter plot, fits a simple linear regression model, overlays the regression line, evaluates the model, and includes Markdown explaining each step.
+## Dataset
 
-## Running the Scripts on Ascend
+Both notebooks and scripts analyze `../regression_data.csv`, using `YearsExperience` as the predictor and `Salary` as the response.
 
-From this directory:
+## Running on Ascend
 
-```bash
-module load miniconda3/24.1.2-py310
-conda activate 7030_class_2
-
-python linear_regression_python.py <filename> <x_column> <y_column>
-Rscript linear_regression_r.R <filename> <x_column> <y_column>
-```
-
-Example:
+Load the required modules, then run either script with `<filename> <x_column> <y_column>`:
 
 ```bash
-python linear_regression_python.py ../regression_data.csv YearsExperience Salary
-Rscript linear_regression_r.R ../regression_data.csv YearsExperience Salary
+module load python/3.12
+python3 regression_plot.py ../regression_data.csv YearsExperience Salary
 ```
 
-Each script saves a regression plot as a PNG file in this folder (`linear_regression_python_output.png` or `linear_regression_r_output.png`).
+```bash
+module load gcc/12.3.0 R/4.5.2
+Rscript regression_plot.R ../regression_data.csv YearsExperience Salary
+```
+
+Each script saves a PNG regression plot in the current directory.
 
 ## Environment Setup
 
-To create the conda environment from scratch:
-
 ```bash
 conda env create -f environment.yml
-conda activate 7030_class_2
+conda activate ai_v2_regression
 ```
+
+On Ascend, the `python/3.12` and `gcc/12.3.0` + `R/4.5.2` modules provide the needed packages without a conda environment.

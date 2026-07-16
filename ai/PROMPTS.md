@@ -1,45 +1,25 @@
-# Prompts Used to Generate the AI-Assisted Solution
+# Prompts Used to Generate This Solution
 
-This file records the major prompts used to produce the contents of the `ai/` folder. Only the essential prompts are included so the workflow can be reproduced.
-
----
-
-## Prompt 1: Generate the AI-Assisted Assignment
-
-```
-I am working on the AI-assisted portion of Assignment 2. Please create all required files only inside the ai folder. Do not modify, move, rename, or delete any files outside the ai folder, and do not perform any Git operations (no commits, pushes, branch changes, or modifications to my repository) without my permission.
-
-Create an environment.yml file for this project. Then create a Jupyter notebook in both Python and R that analyze the dataset ../regression_data.csv. Each notebook should load the data, create a scatter plot, fit a simple linear regression model, overlay the regression line, evaluate the model, and include Markdown explaining each step. Export both notebooks as HTML files.
-
-Then we need the stand alone scripts that would replace the salary and years experience and file name inside the script with more generic x_column y_column and file name. Then we need to be able to run these scripts on ascend command-line for <filename> <x_column> <y_column>. it should generate and save the regression plot as a png file. Place all generated notebooks scipts and HTML files and output images inside the ai. folder and verify that everything runs successfull without modifying anything outside that folder.
-```
-
-**Expected deliverables:**
-- `environment.yml`
-- `regression_python.ipynb` and `regression_r.ipynb`
-- `regression_python.html` and `regression_r.html`
-- `linear_regression_python.py` and `linear_regression_r.R`
-- PNG regression plot outputs from the scripts
-- Verification that all files run successfully on Ascend
+Major prompts used with Cursor AI to produce the files in this folder. These are condensed to the essential instructions needed to reproduce the workflow.
 
 ---
 
-## Prompt 2: Add Project Documentation
+## Prompt 1: Initial project setup
 
-```
-Create a short README inside the ai/ folder describing the AI-generated notebooks and scripts. Mention that all files were generated without modifying the manual implementation.
-```
-
-**Expected deliverable:**
-- `README.md` describing the AI-generated files and noting that the `manual/` implementation was left unchanged
+> Create all required files only inside the ai_v2 folder. Do not read, modify, move, rename, or delete any files outside the ai_v2 folder, and do not perform any Git operations without permission. Do not look at the ai folder or the manual folder.
+>
+> Create an `environment.yml` file for this project. Then create a Jupyter notebook in both Python and R that analyze the dataset `../regression_data.csv`. Each notebook should load the data, create a scatter plot, fit a simple linear regression model, overlay the regression line, evaluate the model, and include Markdown explaining each step. Export both notebooks as HTML files.
+>
+> Create standalone scripts that replace specific column names with generic `x_column`, `y_column`, and `file name` arguments. The scripts should run on the Ascend command line as `<filename> <x_column> <y_column>` and generate/save the regression plot as a PNG file. Place all generated notebooks, scripts, HTML files, and output images inside the ai_v2 folder and verify that everything runs successfully.
 
 ---
 
-## Prompt 3: Document the AI Workflow
+## Prompt 2: Separate regression plots per script
 
-```
-Create PROMPTS.md inside the ai/ folder summarizing the most important prompts used to generate this AI-assisted solution. Do not include unnecessary conversation—only the major prompts that would allow someone else to reproduce the AI workflow.
-```
+> There should be a regression plot for both the AI scripts (Python and R). Each script should save its own PNG output file.
 
-**Expected deliverable:**
-- `PROMPTS.md` (this file)
+---
+
+## Prompt 3: Documentation
+
+> Without looking at any of the other folders: Create a short README inside the ai_v2_0 folder describing the AI-generated notebooks and scripts. Mention that all files were generated without modifying the manual implementation. Create PROMPTS.md summarizing the most important prompts used to generate this AI-assisted solution.

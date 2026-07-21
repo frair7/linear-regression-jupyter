@@ -1,164 +1,259 @@
-# Assignment2_linear-regression-jupyter
-OSU BSGP 7030 Assignment 2: Linear Regression with Jupyter
+# BSGP 7030 – Assignment 3
+## Branching, Pull Requests, Merging, Tagging, and Regression Analysis
 
-## Overview
+### Overview
 
-This assignment demonstrates how to perform a simple linear regression analysis in both Python and R using Jupyter Notebooks and then convert the notebook workflows into standalone command-line scripts. The goal is to understand the differences between interactive notebook development and reusable scripting while comparing equivalent implementations in Python and R.
+This repository contains the completed work for Assignment 3 of BSGP 7030. The objective of this assignment was to continue development of the linear regression project from Assignment 2 while learning and applying a collaborative Git workflow using feature branches, pull requests, merges, and version tags.
+
+The project contains both a manually developed implementation and an AI-assisted implementation in Python and R.
+
+---
+## Repository Structure
+
+```text
+Assignment3/
+├── ai/
+│   ├── environment.yml
+│   ├── PROMPTS.md
+│   ├── README.md
+│   ├── regression_data.csv
+│   ├── regression_plot.py
+│   ├── regression_plot.R
+│   ├── regression_analysis_python.ipynb
+│   ├── regression_analysis_python.html
+│   ├── regression_analysis_r.ipynb
+│   ├── regression_analysis_r.html
+│   ├── linear_regression_python_output.png
+│   └── linear_regression_r_output.png
+│
+├── manual/
+│   ├── archive/
+│   ├── linear_regression_python.py
+│   ├── linear_regression_r.R
+│   ├── regression_python_v2.ipynb
+│   ├── regression_python_V2.html
+│   ├── regression_r.ipynb
+│   ├── regression_r_v2.html
+│   ├── linear_regression_python_output.png
+│   └── linear_regression_r_output.png
+│
+├── environment.yml
+├── regression_data.csv
+├── requirements.txt
+├── setup_env.sh
+└── README.md
+```
+
+---
 
 ## Objectives
 
-- Load a CSV dataset into Python and R.
-- Visualize the relationship between years of experience and salary.
-- Fit a simple linear regression model.
-- Overlay the regression line on a scatter plot.
-- Evaluate model performance.
-- Export notebooks as HTML documents.
-- Convert notebook analyses into standalone command-line scripts.
+The project demonstrates:
 
-## Dataset
+- Linear regression in both Python and R
+- Command-line scripts
+- Interactive Jupyter notebooks
+- Regression visualization
+- Git feature branch workflow
+- Pull requests
+- Branch merging
+- Version tagging
 
-The project uses the provided dataset:
+---
 
-- `regression_data.csv`
+## Project Improvements
 
-The dataset contains two variables:
+Compared to Assignment 2, both the manual and AI-assisted implementations were enhanced to include:
 
-- **YearsExperience** – Years of professional experience
-- **Salary** – Annual salary
+- Linear regression model fitting
+- Regression equation displayed on plots
+- R² calculation and annotation
+- Prediction of salary at **6 years of experience**
+- Highlighted prediction point
+- Improved plot formatting
+- Legends
+- Better axis labels and titles
+- Cleaner notebook organization
+- Exported HTML versions of notebooks
 
-## Repository Structure
+---
 
-```
-Assignment2/
-│
-├── regression_data.csv
-├── environment.yml
-├── requirements.txt
-├── setup_env.sh
-├── README.md
-├── REFLECTION.md
-│
-├── manual/
-│   ├── regression_python.ipynb
-│   ├── regression_python.html
-│   ├── linear_regression_python.py
-│   ├── linear_regression_python_output.png
-│   ├── regression_r.ipynb
-│   ├── regression_r.html
-│   ├── linear_regression_r.R
-│   └── linear_regression_r_output.png
-│
-├── ai/
-│   ├── regression_python.ipynb
-│   ├── regression_python.html
-│   ├── linear_regression_python.py
-│   ├── linear_regression_python_output.png
-│   ├── regression_r.ipynb
-│   ├── regression_r.html
-│   ├── linear_regression_r.R
-│   ├── linear_regression_r_output.png
-│   └── PROMPTS.md
-│
-└── ai_v2_0/
-    ├── regression_analysis_python.ipynb
-    ├── regression_analysis_python.html
-    ├── regression_analysis_r.ipynb
-    ├── regression_analysis_r.html
-    ├── regression_plot.py
-    ├── regression_plot.R
-    ├── regression_data_regression_plot_python.png
-    ├── regression_data_regression_plot_r.png
-    ├── environment.yml
-    ├── README.md
-    └── PROMPTS.md
-```
+## Manual Implementation
 
-## Software and Libraries
+The manual implementation was developed directly by the author using:
 
-### Python
-
-- Python 3.10
-- pandas
-- matplotlib
+- Python
 - scikit-learn
-- Jupyter Notebook
+- matplotlib
+- pandas
 
-### R
+and
 
 - R
 - ggplot2
-- IRkernel
-- Jupyter Notebook
+- lm()
 
-## Analysis Workflow
+The notebooks walk through:
 
-Both the Python and R implementations perform the following steps:
+1. Loading the data
+2. Exploring the dataset
+3. Fitting a regression model
+4. Making predictions
+5. Visualizing the results
 
-1. Read the dataset.
-2. Create a scatter plot of Years of Experience versus Salary.
-3. Fit a simple linear regression model.
-4. Overlay the regression line on the scatter plot.
-5. Evaluate the model using standard regression metrics.
-6. Save the notebook as an HTML document.
-7. Convert the notebook into a standalone command-line script.
+---
 
-## AI-Assisted Version 2.0
+## AI-Assisted Implementation
 
-After comparing the initial AI-assisted files with the manual files, I found that the original AI scripts were nearly identical to the manual implementations. Because Cursor was operating within the same project workspace, it may have referenced the existing files in the `manual/` folder while generating the first AI version.
+The AI-assisted implementation was generated using Cursor with carefully constrained prompts.
 
-To create a more independent comparison, I regenerated the AI-assisted implementation in the separate `ai_v2_0/` folder. During this second attempt, I explicitly instructed the AI not to inspect, copy, or use the code in the `manual/` or original `ai/` folders. The prompts used for this process are documented in `ai_v2_0/PROMPTS.md`.
+The AI was instructed to:
 
-The version 2.0 implementation performs the same required linear-regression analysis but differs substantially from the manual version in its organization, validation, plotting methods, and model evaluation.
+- Work only within the AI folder
+- Avoid referencing the manual implementation
+- Improve visualization
+- Add regression equations
+- Add R²
+- Predict salary at six years of experience
+- Export notebooks as HTML
+- Generate publication-quality figures
 
-### Python Version 2.0
+The resulting code was reviewed, tested, and validated before being committed.
 
-The Python command-line script:
+---
 
-* Uses a `main()` function and a Python execution guard.
-* Verifies that exactly three command-line arguments were supplied.
-* Checks that the requested CSV file exists.
-* Confirms that the selected x and y columns are present in the dataset.
-* Uses pandas to read the data.
-* Uses scikit-learn to fit a linear regression model.
-* Calculates both R-squared and root mean squared error.
-* Creates an evenly spaced set of x-values for drawing a smooth regression line.
-* Adds a legend and a text box containing the model metrics.
-* Saves the completed plot as a PNG image.
+## Running the Scripts
 
-The Python notebook contains the corresponding interactive analysis and was also exported as an HTML file.
+### Python
 
-### R Version 2.0
+```
+python linear_regression_python.py regression_data.csv YearsExperience Salary
+```
 
-The R command-line script:
+### R
 
-* Uses `commandArgs(trailingOnly = TRUE)` to accept the filename and column names.
-* Checks that exactly three command-line arguments were supplied.
-* Verifies that the requested file exists.
-* Confirms that the requested columns are present.
-* Uses `lm()` to fit the linear regression model.
-* Calculates both R-squared and root mean squared error.
-* Uses base R graphics rather than `ggplot2`.
-* Adds the fitted regression line with `abline()`.
-* Adds a legend and displays the model metrics above the plot.
-* Saves the completed plot as a PNG image.
+```
+Rscript linear_regression_r.R regression_data.csv YearsExperience Salary
+```
 
-The R notebook contains the corresponding interactive analysis and was also exported as an HTML file.
+---
 
-### Structural Differences from the Manual Version
+## Outputs
 
-The manual scripts use a direct, sequential structure with minimal input checking. The version 2.0 AI scripts include more defensive programming, such as argument validation, file checks, column checks, clear error messages, and controlled exit statuses.
+Successful execution produces:
 
-The manual Python script reports R-squared, while the version 2.0 Python script reports both R-squared and RMSE. The manual R script uses `ggplot2`, while the version 2.0 R script uses base R plotting functions. The AI-generated Python script also organizes the work into functions, while the manual script executes each step directly at the top level.
+- Regression statistics
+- Predicted salary at 6 years
+- Publication-quality regression plots
+- HTML notebook exports
 
-These differences made the version 2.0 files more robust, although they were also longer and more complex than the manual implementations.
+---
 
-## Results
+## Git Workflow
 
-Both implementations successfully modeled the relationship between years of experience and salary using linear regression. The fitted models produced similar regression coefficients and an R² value of approximately **0.785**, indicating that years of experience explains approximately **78.5%** of the variation in salary within this dataset.
+This assignment was completed using a Git feature branch.
 
-## Assignment Components
+Workflow:
 
-* **Part A:** Manual implementation completed without AI assistance in the `manual/` folder.
-* **Part B:** Initial AI-assisted implementation completed in the `ai/` folder.
-* **Independent AI comparison:** A second AI-assisted implementation was completed in `ai_v2_0/` after discovering that the initial AI version was nearly identical to the manual version.
-* **Part C:** `REFLECTION.md` compares the manual, initial AI-assisted, and independently regenerated AI-assisted workflows.
+1. Clone repository
+2. Create `assignment3` branch
+3. Develop changes on the feature branch
+4. Commit changes
+5. Push feature branch to GitHub
+6. Open Pull Request
+7. Merge into `main`
+8. Create a version tag
+
+This demonstrates a collaborative software development workflow while preserving the project history.
+
+---
+
+## Software
+
+Python packages:
+
+- pandas
+- matplotlib
+- scikit-learn
+
+R packages:
+
+- ggplot2
+
+---
+
+# Assignment Summary
+
+This repository contains the completed work for **BSGP 7030 – Assignment 3: Git and Improvements to Assignment 2**.
+
+## Part A – Manual Implementation
+
+The manual implementation was completed without the use of AI and includes:
+
+- Enhanced Python and R regression scripts
+- Enhanced Python and R Jupyter notebooks
+- Improved regression visualizations with:
+  - Regression line
+  - Regression equation
+  - R² annotation
+  - Prediction of salary at 6 years of experience
+  - Highlighted prediction point
+  - Legends and improved formatting
+- HTML exports of both notebooks
+- PNG images generated from both scripts
+- Git workflow completed using a dedicated `assignment3` feature branch
+
+---
+
+## Part B – AI-Assisted Implementation
+
+A separate AI implementation is included in the `ai/` directory.
+
+The AI-assisted work includes:
+
+- Enhanced Python and R regression scripts
+- Enhanced Python and R Jupyter notebooks
+- HTML notebook exports
+- Generated regression figures
+- AI prompt log (`PROMPTS.md`)
+- AI-generated repository documentation (`README_AI.md`)
+- AI code review (`CODE_REVIEW.md`)
+
+The AI implementation was developed independently of the manual implementation and subsequently reviewed and tested before being committed.
+
+---
+
+## Part C – Reflection
+
+The repository also includes **REFLECTION.md**, which discusses:
+
+- Comparison of manual and AI-generated commit messages
+- Evaluation of the AI code review
+- Comparison of the manual README and AI-generated README
+- Lessons learned and future workflow improvements
+
+---
+
+## Git Workflow Demonstrated
+
+This assignment demonstrates the use of Git and GitHub through:
+
+- Feature branch development (`assignment3`)
+- Multiple commits documenting project progress
+- Pull request creation
+- Branch merging into `main`
+- Version tagging of the final merged release
+
+---
+
+## Repository Contents
+
+This repository contains:
+
+- Manual implementation (`manual/`)
+- AI-assisted implementation (`ai/`)
+- Regression dataset
+- Environment and setup files
+- Project documentation
+- Reflection
+- Git history demonstrating the complete development workflow
